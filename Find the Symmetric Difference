@@ -1,0 +1,38 @@
+function sym(...args) {
+  //args = args.flat(); 
+  //args = [... new Set(args)];
+  var result = [];
+  var checkSymetry=0;
+  for (let i=0;i<args.length;i++) //taking each array
+  {
+    console.log('this is i :'+ i);
+    for (let j=0;j<args[i].length;j++ ){ // take each element of the array
+    checkSymetry=0;
+    console.log('this is j :' +j);
+  //args[i].sort((a,b)=>{return a-b;})
+      for (let k=0; k<args.length ; k++) //check if it exists in others
+      {
+        if(k!=i){
+        console.log('this is k : ' + k);
+        if(args[k].includes(args[i][j])){
+          checkSymetry++;
+          
+          console.log('this is the test for '+args[i][j]);
+        }
+        }
+      } 
+        if(checkSymetry%2==0)
+        {
+          console.log(args[i][j]);
+          result.push(args[i][j]);
+          console.log(result); 
+        }
+} 
+} 
+
+console.log(args.length);
+let uniqueChars = [...new Set(result.sort((a,b)=>{return a-b;}))];
+console.log(uniqueChars);
+return uniqueChars;
+}
+sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1])
