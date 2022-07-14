@@ -1,0 +1,30 @@
+function pairwise(arr, arg) {
+  
+  let outIndex=[];
+
+  /* for (let i =0; i<arr.length;i++)
+  {
+    index[i]=arr.indexOf([arr[i]]);
+  } */
+
+
+  for (let i =0; i<arr.length ;i++)
+  {
+    for (let j =i+1; j<arr.length;j++)
+    {
+      if(arr[i]+arr[j]==arg
+      && !outIndex.includes(i)
+      && !outIndex.includes(j))
+      {
+        
+        outIndex.push(i,j);
+        break;
+      }
+  }
+  }
+
+
+  return outIndex.reduce((previousIndex,currentIndex, index)=> previousIndex + currentIndex,0);
+}
+
+pairwise([1,4,2,3,0,5], 7);
