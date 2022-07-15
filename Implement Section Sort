@@ -1,0 +1,38 @@
+function selectionSort(array) {
+  // Only change code below this line
+let k=0; //check if there was a change with the algorithm 
+let a=0;  // keep track of the index of the last
+let b=1; // overloop the algorithm until it is sorted perfectly
+while(b!=0){
+    b=0;
+  for (let i=0;i<array.length;i++)
+  {
+    let smallestNum=array[i];
+    k=0;
+    a=0;
+    for(let j=i+1; j<array.length;j++)
+    {
+      
+      if(smallestNum>array[j])
+      {
+        a = j;
+        //smallestNum=array[j];
+        k++;
+
+      }
+
+
+    }
+    if(k!=0)
+    {
+      let c=array[i];
+      array[i]=array[a];
+      array[a]=c;
+        b++;
+    }
+
+
+  }
+}
+  return array;
+}
